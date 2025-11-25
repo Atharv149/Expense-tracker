@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <p style="color: white;">Manage your budget smartly</p>
+  </header>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="signup.html">Sign-up</a>
+    <a href="signin.html">Sign-in</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+
+  <!-- Sign Up Page -->
+  <div id="Sign-up" class="container1">
+    <h2>Sign Up</h2>
+    <input type="Email" id="signupUser" placeholder="Email" />
+    <input type="password" id="signupPass" placeholder="Password" />
+    <button id="signupBtn">Sign Up</button>
+    <p>Already have an account? <a href="signin.html">Sign-in</a></p>
+  </div>
+<script>
+  document.getElementById("signupBtn").addEventListener("click", function () {
+    let username = document.getElementById("signupUser").value.trim();
+    let password = document.getElementById("signupPass").value.trim();
+
+    if (username === "" || password === "") {
+      alert("Please fill in both Email-id and Password!");
+      return;
+    }
+
+    // Get existing users OR set empty array
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if email already exists
+    let exists = users.some(u => u.email === username);
+
+    if (exists) {
+      alert("This email is already registered. Please sign in.");
+      return;
+    }
+
+    // Add new user object
+    users.push({
+      email: username,
+      password: password
+    });
+
+    // Save updated user list
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Sign-up successful! Redirecting to Sign-in page...");
+    window.location.href = "signin.html";
+  });
+</script>
+
+  </body>
+  </html>

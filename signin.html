@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign In - Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <p style="color: white;">Manage your budget smartly</p>
+  </header>
+
+  <nav>
+    <a href="homepage.html">Home</a>
+    <a href="signup.html">Sign-up</a>
+    <a href="signin.html">Sign-in</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <!-- Sign In Page -->
+  <div id="Sign-in" class="container1">
+    <h2>Sign In</h2>
+    <input type="email" id="signinUser" placeholder="Email" />
+    <input type="password" id="signinPass" placeholder="Password" />
+    <button id="signinBtn">Sign In</button>
+    <p>Don't have an account? <a href="signup.html">Sign-up</a></p>
+  </div>
+
+<script>
+document.getElementById("signinBtn").addEventListener("click", function () {
+  let enteredUser = document.getElementById("signinUser").value.trim();
+  let enteredPass = document.getElementById("signinPass").value.trim();
+
+  if (enteredUser === "" || enteredPass === "") {
+    alert("Please fill in both Email-id and Password!");
+    return;
+  }
+
+  // Fetch all registered users
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Compare entered credentials with registered users
+  let userFound = users.find(user => 
+    user.email === enteredUser && user.password === enteredPass
+  );
+
+  if (userFound) {
+    alert("Login successful! Redirecting to dashboard...");
+    localStorage.setItem("loggedInUser", enteredUser); // store active user
+    window.location.href = "dashboard.html"; // redirect to dashboard or homepage
+  } else {
+    alert("Invalid Email or Password. Please try again.");
+  }
+});
+</script>
+
+</body>
+</html>
