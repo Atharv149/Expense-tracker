@@ -7,17 +7,6 @@
 </head>
 <body>
   <style>
-    #signOutBtn, #homeBtn, #dashboardBtn, #servicesBtn, #aboutBtn, #signupBtn, #signinBtn {
-  width: 10%;
-  padding: 8px 0px;
-  border-radius: 50px;
-  background: white;
-  color: #34495e;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  
-}
 
 #signInBtn {
   padding: 10px 20px;
@@ -33,19 +22,32 @@
 #signInBtn:hover {
   background: #34495e;
 }
+    footer {
+      background: #34495e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
   <header>
     <h1>Expense Tracker</h1>
     <p style="color: white;">Manage your budget smartly</p>
   </header>
 
- <nav>
-  <button id="homeBtn">Home</button>
-  
-  <button id="servicesBtn">Services</button>
-  <button id="aboutBtn">About Us</button>
-  <button id="signupBtn">Sign-up</button>
-  <button id="signinBtn">Sign-in</button>
+ <nav id="navbar">
+  <div style="
+    width: fit-content;
+    margin-left: auto;
+  ">
+    <button class="nav_button" id="homeBtn">Home</button>
+    <button class="nav_button" id="servicesBtn">Services</button>
+    <button class="nav_button" id="aboutBtn">About Us</button>
+    <button class="nav_button"id="signupBtn">Sign-up</button>
+    <button class="nav_button" id="signinBtn">Sign-in</button>
+</div>
 </nav>
 
 <script>
@@ -68,7 +70,7 @@
 
 
   <!-- Sign In Page -->
-  <div id="Sign-in" class="container1">
+  <div id="Sign-in" class="container" style="width: 40%;">
     <h2>Sign In</h2>
     <input type="email" id="signinUser" placeholder="Email" />
     <input type="password" id="signinPass" placeholder="Password" />

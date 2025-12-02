@@ -24,7 +24,7 @@
       background: #2c3e50;
       color: white;
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
 
     header h1 {
@@ -34,8 +34,8 @@
 
  nav {
   background: #34495e;
-  padding: 10px 20px;
-  display: flex;                /* align items horizontally */
+  padding: 1px 20px;
+               /* align items horizontally */
   justify-content: space-evenly; /* links left, button right */
   align-items: center;            /* center vertically */
   position: static;               /* stays below header */
@@ -50,27 +50,7 @@
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #00aaff;
-    }
-
-    #signOutBtn,
-    #homeBtn,
-    #dashboardBtn,
-    #servicesBtn,
-    #aboutBtn,
-    #signupBtn,
-    #signinBtn {
-      width: 10%;
-      padding: 8px 0px;
-      border-radius: 50px;
-      background: white;
-      color: #34495e;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-
-    }
+    
 
     /* -------------------- Home Section -------------------- */
     section {
@@ -153,7 +133,7 @@
     /* -------------------- Footer -------------------- */
     footer {
       background: #2c3e50;
-      padding: 18px 0;
+      padding: 15px 0;
       text-align: center;
     }
 
@@ -183,12 +163,18 @@
     <p style="color: white;">Manage your budget smartly</p>
   </header>
 
-  <nav>
-    <button id="homeBtn">Home</button>
-    
-    <button id="servicesBtn">Services</button>
-    <button id="aboutBtn">About Us</button>
-  </nav>
+  <nav id="navbar">
+  <div id="a" style="
+    width: fit-content;
+    margin-left: auto;
+  ">
+    <button class="nav_button" id="homeBtn">Home</button>
+    <button class="nav_button" id="servicesBtn">Services</button>
+    <button class="nav_button" id="aboutBtn">About Us</button>
+    <button class="nav_button"id="signupBtn">Sign-up</button>
+    <button class="nav_button" id="signinBtn">Sign-in</button>
+</div>
+</nav>
   <!-- Home -->
   <section>
     <div id="Home" class="container">
@@ -246,12 +232,17 @@
     document.getElementById("aboutBtn").onclick = () => {
       window.location.href = "about.html";
     };
+    document.getElementById("signupBtn").onclick = () =>
+    window.location.href = "signup.html";
+
+  document.getElementById("signinBtn").onclick = () =>
+    window.location.href = "signin.html";
   </script>
 
   <script>
   // Check if user is logged in
   const loggedInUser = localStorage.getItem("loggedInUser");
-
+   const nav = document.getElementById("a");
   // Create Sign-in and Sign-up buttons if logged out
   if (!loggedInUser) {
 
@@ -268,21 +259,23 @@
     signin.innerText = "Sign-In";
     signin.onclick = () => window.location.href = "signin.html";
 
-    nav.appendChild(signup);
-    nav.appendChild(signin);
+    
 
   } else {
     // User logged in → show Dashboard + Sign Out
     const nav = document.querySelector("nav");
 
     let dashboard = document.createElement("button");
-    dashboard.id = "dashboardBtn";
+    dashboard.id  = "dashboardBtn";
+    dashboard.classList.add("nav_button")
     dashboard.innerText = "Dashboard";
     dashboard.onclick = () => window.location.href = "dashboard.html";
 
     let signout = document.createElement("button");
     signout.id = "signOutBtn";
+    signout.classList.add("nav_button")
     signout.innerText = "Sign Out";
+
     signout.onclick = () => {
       // Update user state to INACTIVE
       let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -301,8 +294,8 @@
       window.location.href = "signin.html";
     };
 
-    nav.appendChild(dashboard);
-    nav.appendChild(signout);
+    a.appendChild(dashboard);
+    a.appendChild(signout);
   }
 </script>
 

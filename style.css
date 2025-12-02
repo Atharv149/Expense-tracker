@@ -14,35 +14,39 @@ html {
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #ffffff;
+  background:white;
   color: #333;
 }
+
+/* ---------------- HEADER ---------------- */
 
 /* ---------------- HEADER ---------------- */
 header {
   background: #2c3e50;      /* Dark blue background */
   color: white;
-  padding: 60px 20px;       /* Increase height like screenshot */
+  padding: 30px 20px;       /* Increase height like screenshot */
   text-align: center;
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 38px;
   margin: 0;
   font-weight: 700;
 }
 
 header p {
-  padding-top: 20px;
+  margin-top: 10px;
   font-size: 18px;
   color: white;             /* Ensure subtitle remains white */
 }
-
+ 
+  
+ 
 /* ---------------- FIXED NAV ---------------- */
 nav {
   background: #34495e;
-  padding: 10px 20px;
-  display: flex;                /* align items horizontally */
+  padding: 1px 20px;
+           /* align items horizontally */
   justify-content: space-evenly; /* links left, button right */
   align-items: center;            /* center vertically */
   position: static;               /* stays below header */
@@ -62,16 +66,18 @@ nav a:hover {
 }
 
 /* Sign Out button styling */
-#signOutBtn, #homeBtn, #dashboardBtn, #servicesBtn, #aboutBtn, #signupBtn, #signinBtn {
-  width: 10%;
-  padding: 8px 0px;
+.nav_button {
+  
+  width: 100px;
+  
+  padding: 8px 5px;
   border-radius: 50px;
   background: white;
   color: #34495e;
   border: none;
   cursor: pointer;
-  font-weight: bold;
-  
+  font-weight: bold; 
+  margin-left: 15px;
 }
 
 #signOutBtn:hover {
@@ -81,7 +87,7 @@ nav a:hover {
 
 /* --------------- MAIN WRAPPER (flex layout) ---------------- */
 .dashboardWrapper {
-  margin-top: 60px;  /* push below fixed nav */
+  margin-top: 20px;  /* push below fixed nav */
   display: flex;
   align-items: flex-start;
   width: 100%;
@@ -100,7 +106,7 @@ nav a:hover {
 
 /* ---------------- TRANSACTION SIDEBAR ---------------- */
 .transactionHistory {
- background: #f8f8f8;
+  background: #f8f8f8;
   padding: 15px;
   border-left: 2px solid #ddd;
   border-radius: 8px;
@@ -114,6 +120,7 @@ nav a:hover {
   text-align: center;
   color: #2c3e50;
   font-weight: bold;
+  
 }
 
 #history div {
@@ -132,6 +139,13 @@ nav a:hover {
   gap: 30px;
   margin-top: 10px;
 }
+.container1{
+  width: 40%;
+  background: rgb(253, 252, 252);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
 
 .charts canvas {
   width: 350px !important;
@@ -147,6 +161,7 @@ nav a:hover {
 .grid {
   width: 50%;
   margin: 20px auto;
+  
 }
 
 /* ---------------- BUTTONS & INPUTS ---------------- */
@@ -164,11 +179,23 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background: #1f2d3a;
+
+ #BtnViewAll {
+  width: 100px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #cfd6de;
+  border-radius: 8px;
 }
-
-
+footer {
+      background: #34495e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
 
 
 .modal {
@@ -200,8 +227,8 @@ button:hover {
 /* Wrapper for the two buttons */
 .btn-btn {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: right;
+  gap: 399px;
   margin: 15px 0;
 }
 
@@ -225,8 +252,7 @@ button:hover {
 }
 
 /* Optional: make both equal width */
-.BtnViewAll,
-.BtnViewSelected {
+.BtnViewAll {
   width: 120px;
   text-align: center;
 }
@@ -236,16 +262,20 @@ button:hover {
   margin-left: 25%;
   margin-top: 5%;
 }
-footer {
-      background: #2c3e50;
-      padding: 18px 0;
-      text-align: center;
-    }
-
-    footer p {
-      color: white;
-      font-size: 14px;
-    }
 .container2{
-  margin-top: 30px;
+  margin-top: 20px;
 }
+.small-btn {
+  font-size: 12px;
+  padding: 4px 6px;
+  margin: 0 2px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-btn { background-color: #f1c40f; color: white; }
+.delete-btn { background-color: #e74c3c; color: white; }
+.save-btn { background-color: #2ecc71; color: white; }
+.cancel-btn { background-color: #95a5a6; color: white; }
+

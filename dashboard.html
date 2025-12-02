@@ -13,14 +13,18 @@
     <p style="color: white;">Manage your budget smartly</p>
   </header>
 
-  <nav>
-    <button id="homeBtn">Home</button>
-    <button id="dashboardBtn">Dashboard</button>
-    <button id="servicesBtn">Services</button>
-    <button id="aboutBtn">About Us</button>
-    <button id="signOutBtn">Sign Out</button>
-  </nav>
-
+  <nav id="navbar">
+  <div style="
+    width: fit-content;
+    margin-left: auto;
+  ">
+    <button class="nav_button" id="homeBtn">Home</button>
+    <button class="nav_button" id="servicesBtn">Services</button>
+    <button class="nav_button" id="aboutBtn">About Us</button>
+    <button class="nav_button"id="signupBtn">Sign-up</button>
+    <button class="nav_button" id="signinBtn">Sign-in</button>
+</div>
+</nav>
   <!-- ✔ Parent Wrapper Contains Both Sections -->
   <div class="dashboardWrapper">
 
@@ -29,29 +33,30 @@
 
       <h2>Welcome to Expense Tracker</h2>
 
-      <div class="summary">
-        <p><strong>Total Income:</strong> <span id="totalIncome">0</span></p>
-        <p><strong>Total Expense:</strong> <span id="totalExpense">0</span></p>
-        <p><strong>Balance:</strong> <span id="balance">0</span></p>
+      <div class="summary" style="padding:10px";>
+        <p style="padding:10px";><strong>Total Income:</strong> <span id="totalIncome">0</span></p>
+        <p style="padding:10px";><strong>Total Expense:</strong> <span id="totalExpense">0</span></p>
+        <p style="padding:10px";><strong>Balance:</strong> <span id="balance">0</span></p>
       </div>
 
-      <h3></h3>
+      
       <div class="charts">
         <canvas id="pieChart"></canvas>
         <canvas id="barChart"></canvas>
       </div>
 
-<div class="transactionHistory" style="width: 90%;">
+        <div class="transactionHistory" style="width: 90%;">
     
       <div class="btn-btn">
         <h3 style="text-align: left;" >Transaction History</h3>
-        <button id="BtnViewAll">Veiw All</button>
+       <a href="all-history.html"> <button id="BtnViewAll">Veiw All</button></a>
         
       </div>
       <div id="history"></div>
 
-           
- </div>
+
+      </div>
+
 
       <!-- Modal -->
       <div id="modal" class="modal">
@@ -74,7 +79,13 @@
           <input type="date" id="date" />
           <button id="addBtn">Add transaction</button>
         </div>
-      </div>
+    
+
+  </div>
+  <footer>
+  Expense Tracker | Built for better money management
+</footer>
+
   <script>
     // Page navigation handlers
     document.getElementById("homeBtn").addEventListener("click", function () {
@@ -92,7 +103,7 @@
     document.getElementById("aboutBtn").addEventListener("click", function () {
       window.location.href = "about.html";
     });
-
+      
     // Sign Out button handler
     document.getElementById("signOutBtn").addEventListener("click", function () {
 

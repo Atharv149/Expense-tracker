@@ -84,7 +84,7 @@ function updateUI() {
   // ---------------------------
   // LIMIT number of transactions shown
   // ---------------------------
-  const limit = 8; 
+  const limit = 5; 
   const visibleTransactions = transactions.slice(-limit);
 
   visibleTransactions.forEach((t) => {
